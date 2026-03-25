@@ -4,6 +4,7 @@ import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Toast from "./components/Toast";
+import ChatBubble from "./components/ChatBubble";
 import PageTransition from "./components/PageTransition";
 
 import Home from "./pages/Home";
@@ -36,6 +37,7 @@ function StorefrontLayout() {
       </main>
       <Footer />
       <Toast />
+      <ChatBubble />
     </div>
   );
 }
