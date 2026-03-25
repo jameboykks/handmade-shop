@@ -48,11 +48,27 @@ export default function OrderSuccess() {
         </div>
 
         <h1 className="font-display text-3xl sm:text-4xl font-bold text-dark mb-3 animate-fade-in-up">
-          Đặt hàng thành công!
+          {order.paymentMethod === "cod" ? "Đặt hàng thành công!" : "Thanh toán thành công!"}
         </h1>
-        <p className="text-dark-light mb-8 max-w-md mx-auto animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          Cảm ơn bạn đã mua sắm tại Handmade. Đơn hàng của bạn đang được xử lý.
+        <p className="text-dark-light mb-4 max-w-md mx-auto animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+          Cảm ơn bạn đã tin tưởng và ủng hộ <span className="font-semibold text-dark">Handmade</span>!
+          {order.paymentMethod !== "cod"
+            ? " Chúng tôi đã nhận được thanh toán của bạn."
+            : ""}
         </p>
+        <p className="text-dark-light mb-8 max-w-md mx-auto text-sm animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+          Đơn hàng đang được chuẩn bị với tất cả sự tỉ mỉ và yêu thương. Chúng tôi sẽ liên hệ qua số điện thoại <span className="font-semibold text-dark">{order.customerInfo.phone}</span> khi hàng sẵn sàng giao.
+        </p>
+
+        {/* Thank you banner */}
+        <div className="bg-gradient-to-r from-pink-soft via-purple-light to-mint-light rounded-2xl p-5 mb-8 animate-fade-in-up" style={{ animationDelay: "0.18s" }}>
+          <p className="font-display text-lg font-semibold text-dark mb-1">
+            Mỗi sản phẩm bạn chọn đều được tạo nên bằng tình yêu
+          </p>
+          <p className="text-dark-light text-sm">
+            Cảm ơn bạn đã đồng hành cùng những nghệ nhân thủ công Việt Nam. Sự ủng hộ của bạn chính là nguồn cảm hứng lớn nhất của chúng tôi.
+          </p>
+        </div>
 
         {/* Order info card */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray/50 text-left mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
