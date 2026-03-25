@@ -2,8 +2,10 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ProductProvider } from "./context/ProductContext";
 import { CartProvider } from "./context/CartContext";
 import { OrderProvider } from "./context/OrderContext";
+import { WishlistProvider } from "./context/WishlistContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import PromoBanner from "./components/PromoBanner";
 import Toast from "./components/Toast";
 import ChatBubble from "./components/ChatBubble";
 import ScrollToTop from "./components/ScrollToTop";
@@ -17,6 +19,8 @@ import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Policies from "./pages/Policies";
+import Wishlist from "./pages/Wishlist";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
@@ -27,6 +31,7 @@ import OrderList from "./pages/admin/OrderList";
 function StorefrontLayout() {
   return (
     <div className="flex flex-col min-h-screen">
+      <PromoBanner />
       <Navbar />
       <main className="flex-1">
         <PageTransition>
@@ -39,6 +44,8 @@ function StorefrontLayout() {
             <Route path="/order-success/:orderId" element={<OrderSuccess />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/policies" element={<Policies />} />
+            <Route path="/wishlist" element={<Wishlist />} />
           </Routes>
         </PageTransition>
       </main>
@@ -77,8 +84,10 @@ export default function App() {
       <ProductProvider>
         <CartProvider>
           <OrderProvider>
-            <ScrollToTop />
-            <AppRoutes />
+            <WishlistProvider>
+              <ScrollToTop />
+              <AppRoutes />
+            </WishlistProvider>
           </OrderProvider>
         </CartProvider>
       </ProductProvider>

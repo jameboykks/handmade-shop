@@ -1,8 +1,8 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useProducts } from "../context/ProductContext";
 import ProductCard from "../components/ProductCard";
-import { HiOutlineAdjustments, HiOutlineX } from "react-icons/hi";
+import { HiOutlineAdjustments, HiOutlineX, HiOutlineSearch } from "react-icons/hi";
 
 const CATEGORIES = ["Tất cả", "Trang sức", "Phụ kiện tóc", "Túi xách", "Quà tặng", "Khác"];
 
@@ -10,27 +10,44 @@ export default function Shop() {
   const { products } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCat = searchParams.get("category") || "Tất cả";
+  const searchQuery = searchParams.get("search") || "";
 
   const [category, setCategory] = useState(initialCat);
   const [priceRange, setPriceRange] = useState([0, 1000000]);
   const [showFilter, setShowFilter] = useState(false);
 
+  // Update category when search params change externally
+  useEffect(() => {
+    const cat = searchParams.get("category") || "Tất cả";
+    setCategory(cat);
+  }, [searchParams]);
+
   const filtered = useMemo(() => {
     return products.filter((p) => {
       const catMatch = category === "Tất cả" || p.category === category;
       const priceMatch = p.price >= priceRange[0] && p.price <= priceRange[1];
-      return catMatch && priceMatch;
+      const searchMatch =
+        !searchQuery ||
+        p.name.toLowerCase().includes(searchQuery.toLowerCase());
+      return catMatch && priceMatch && searchMatch;
     });
-  }, [products, category, priceRange]);
+  }, [products, category, priceRange, searchQuery]);
 
   const handleCategoryChange = (cat) => {
     setCategory(cat);
+    const newParams = new URLSearchParams(searchParams);
     if (cat === "Tất cả") {
-      searchParams.delete("category");
+      newParams.delete("category");
     } else {
-      searchParams.set("category", cat);
+      newParams.set("category", cat);
     }
-    setSearchParams(searchParams);
+    setSearchParams(newParams);
+  };
+
+  const clearSearch = () => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete("search");
+    setSearchParams(newParams);
   };
 
   return (
@@ -46,6 +63,22 @@ export default function Shop() {
             Khám phá bộ sưu tập handmade độc đáo của chúng tôi
           </p>
         </div>
+
+        {/* Search indicator */}
+        {searchQuery && (
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <div className="inline-flex items-center gap-2 bg-purple-light text-purple px-4 py-2 rounded-full text-sm font-medium">
+              <HiOutlineSearch className="w-4 h-4" />
+              <span>Kết quả cho: &ldquo;{searchQuery}&rdquo;</span>
+              <button
+                onClick={clearSearch}
+                className="ml-1 p-0.5 rounded-full hover:bg-purple/10 transition-colors bg-transparent border-none cursor-pointer text-purple"
+              >
+                <HiOutlineX className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Category pills (desktop) */}
         <div className="hidden md:flex items-center justify-center gap-2 mb-10">

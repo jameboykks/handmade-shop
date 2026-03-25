@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HiOutlineShoppingBag, HiOutlineEye } from "react-icons/hi";
+import { HiOutlineShoppingBag, HiOutlineEye, HiOutlineHeart, HiHeart } from "react-icons/hi";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
 
 function formatPrice(price) {
   return new Intl.NumberFormat("vi-VN").format(price) + " ₫";
@@ -9,10 +10,12 @@ function formatPrice(price) {
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
+  const { toggleWishlist, isInWishlist } = useWishlist();
   const [imgLoaded, setImgLoaded] = useState(false);
+  const inWishlist = isInWishlist(product.id);
 
   return (
-    <div className="group bg-white rounded-3xl overflow-hidden card-hover border border-gray/50">
+    <div className="group relative bg-white rounded-3xl overflow-hidden card-hover border border-gray/50">
       {/* Image */}
       <Link to={`/product/${product.id}`} className="block relative overflow-hidden aspect-square">
         <div
@@ -38,6 +41,27 @@ export default function ProductCard({ product }) {
           {product.category}
         </span>
       </Link>
+
+      {/* Wishlist heart button */}
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleWishlist(product.id);
+        }}
+        className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer border-none shadow-sm ${
+          inWishlist
+            ? "bg-pink text-white"
+            : "glass text-dark-light hover:text-pink"
+        }`}
+        aria-label="Yêu thích"
+      >
+        {inWishlist ? (
+          <HiHeart className="w-4 h-4" />
+        ) : (
+          <HiOutlineHeart className="w-4 h-4" />
+        )}
+      </button>
 
       {/* Info */}
       <div className="p-4">

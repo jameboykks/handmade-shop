@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { HiOutlineHeart } from "react-icons/hi";
 import { FaFacebookF, FaInstagram, FaPinterestP, FaTiktok } from "react-icons/fa";
+import BrandLogo from "./BrandLogo";
 
 export default function Footer() {
   return (
@@ -14,9 +15,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-pink to-purple flex items-center justify-center">
-                <span className="text-white font-display font-bold text-base">H</span>
-              </div>
+              <BrandLogo className="w-8 h-8" light />
               <span className="font-display text-xl text-white font-semibold">Handmade</span>
             </div>
             <p className="text-sm leading-relaxed text-white/50">
@@ -36,6 +35,7 @@ export default function Footer() {
                 { to: "/shop", label: "Cửa hàng" },
                 { to: "/about", label: "Về chúng tôi" },
                 { to: "/contact", label: "Liên hệ" },
+                { to: "/policies", label: "Chính sách" },
               ].map((link) => (
                 <Link
                   key={link.to}
