@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Toast from "./components/Toast";
 import ChatBubble from "./components/ChatBubble";
+import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
 
 import Home from "./pages/Home";
@@ -76,6 +77,7 @@ export default function App() {
       <ProductProvider>
         <CartProvider>
           <OrderProvider>
+            <ScrollToTop />
             <AppRoutes />
           </OrderProvider>
         </CartProvider>
