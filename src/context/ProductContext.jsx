@@ -4,20 +4,24 @@ import seedProducts from "../data/seedProducts";
 const ProductContext = createContext();
 
 const STORAGE_KEY = "handmade_products";
-const SEED_KEY = "handmade_seeded_v2";
+const SEED_VERSION = "3";
+const SEED_KEY = "handmade_seed_ver";
 
 function loadProducts() {
+  // Force re-seed when version changes (new product data)
+  const currentVer = localStorage.getItem(SEED_KEY);
+  if (currentVer !== SEED_VERSION) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(seedProducts));
+    localStorage.setItem(SEED_KEY, SEED_VERSION);
+    return seedProducts;
+  }
+
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) return JSON.parse(saved);
   } catch {}
 
-  if (!localStorage.getItem(SEED_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(seedProducts));
-    localStorage.setItem(SEED_KEY, "true");
-    return seedProducts;
-  }
-  return [];
+  return seedProducts;
 }
 
 export function ProductProvider({ children }) {
