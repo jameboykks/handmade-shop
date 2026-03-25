@@ -1,106 +1,148 @@
 const seedProducts = [
   {
     id: "1",
-    name: "Vòng tay đá thạch anh hồng",
-    category: "Trang sức",
-    price: 185000,
-    description: "Vòng tay handmade từ đá thạch anh hồng tự nhiên, mang năng lượng tình yêu và sự dịu dàng. Mỗi viên đá được chọn lọc kỹ càng, kết hợp với charm bạc 925 tinh tế.",
-    stock: 15,
+    name: "Trâm cài hoa Anh Túc đỏ",
+    category: "Phụ kiện tóc",
+    price: 195000,
+    description: `Giữa muôn vàn loài hoa, anh túc mang trong mình vẻ đẹp mong manh nhưng rực cháy — như một lời nhắn nhủ rằng hãy sống thật trọn vẹn, thật rực rỡ dù chỉ là khoảnh khắc.
+
+Mỗi cánh hoa được tạo hình thủ công tỉ mỉ, từng đường nét mỏng manh như cánh hoa thật đang e ấp dưới nắng sớm. Sắc đỏ tươi hoà cùng nhị đen huyền bí, tựa một bức tranh nhỏ bạn có thể mang theo bên mình.
+
+Cài lên tóc, gắn trên áo hay đặt trang trí góc bàn — đâu đâu cũng là một nét thơ.
+
+• Chất liệu: Resin cao cấp, kẹp kim loại mạ vàng
+• Kích thước mỗi bông: ~4-5cm
+• Bảo quản: Tránh nước và va đập mạnh`,
+    stock: 18,
     featured: true,
     images: [
-      "https://picsum.photos/seed/bracelet1/600/600",
-      "https://picsum.photos/seed/bracelet1b/600/600"
+      "/products/poppy.jpg"
     ]
   },
   {
     id: "2",
-    name: "Kẹp tóc hoa lụa vintage",
-    category: "Phụ kiện tóc",
-    price: 95000,
-    description: "Kẹp tóc hoa lụa handmade phong cách vintage, hoàn hảo cho những buổi hẹn hò hoặc chụp ảnh. Hoa được làm thủ công từ vải lụa cao cấp, bền màu theo thời gian.",
-    stock: 22,
+    name: "Khuyên tai hoa Đào hồng",
+    category: "Trang sức",
+    price: 165000,
+    description: `Mỗi mùa xuân, hoa đào lại nở — nhẹ nhàng, dịu dàng, như lời chúc bình an gửi trao.
+
+Đôi khuyên tai này được nặn tay từ đất sét polymer, từng cánh hoa mỏng tang, trong suốt với ánh hồng phấn lung linh dưới ánh sáng. Nhị hoa nhỏ xinh mạ vàng 18K, móc tai uốn cong thanh mảnh — vừa đủ nữ tính, vừa đủ sang trọng.
+
+Mang trên tai, bạn không chỉ đeo một món trang sức — bạn mang theo cả một mùa xuân.
+
+• Chất liệu: Đất sét polymer Nhật, móc tai mạ vàng 18K
+• Kích thước bông hoa: ~2cm
+• Trọng lượng: Siêu nhẹ, thoải mái đeo cả ngày
+• Phù hợp: Dạo phố, hẹn hò, chụp ảnh`,
+    stock: 24,
     featured: true,
     images: [
-      "https://picsum.photos/seed/hairclip1/600/600",
-      "https://picsum.photos/seed/hairclip1b/600/600"
+      "/products/sakura-earrings.jpg"
     ]
   },
   {
     id: "3",
-    name: "Túi tote thêu tay hoa cúc",
-    category: "Túi xách",
-    price: 320000,
-    description: "Túi tote canvas được thêu tay họa tiết hoa cúc trắng, phong cách cottagecore. Chất liệu canvas dày dặn, có lót trong và ngăn nhỏ đựng điện thoại.",
+    name: "Tiểu cảnh Lan Hồ Điệp trong lồng kính",
+    category: "Quà tặng",
+    price: 450000,
+    description: `Có những vẻ đẹp không cần phô trương mà vẫn khiến người ta ngoái nhìn. Lan Hồ Điệp trắng tinh khôi trong lồng kính thuỷ tinh — thanh lịch, bình yên, như một khoảng lặng giữa cuộc sống xô bồ.
+
+Mỗi bông lan được tạo hình thủ công, cánh hoa trắng muốt toả ra sự thuần khiết, đặt trên lớp rêu xanh tự nhiên trong chậu gỗ sồi nhỏ xinh. Lồng kính trong suốt bảo vệ vẻ đẹp ấy mãi không phai.
+
+Đây không chỉ là một món quà — đây là một lời nhắn "Anh/em luôn trân trọng những điều đẹp đẽ, giống như trân trọng bạn."
+
+• Chất liệu: Hoa đất sét polymer, rêu bảo quản, dome kính, đế gỗ sồi
+• Kích thước: Cao ~18cm, đường kính ~10cm
+• Không cần tưới nước, bền đẹp theo thời gian
+• Phù hợp: Quà sinh nhật, quà tặng người yêu, trang trí bàn làm việc`,
     stock: 8,
     featured: true,
     images: [
-      "https://picsum.photos/seed/tote1/600/600",
-      "https://picsum.photos/seed/tote1b/600/600"
+      "/products/orchid-dome-1.jpg",
+      "/products/orchid-dome-2.jpg"
     ]
   },
   {
     id: "4",
-    name: "Hộp quà handmade - Yêu thương",
-    category: "Quà tặng",
-    price: 450000,
-    description: "Set quà tặng handmade bao gồm: nến thơm sáp ong, xà phòng hoa hồng, túi thơm lavender, và thiệp viết tay. Đóng gói trong hộp giấy kraft xinh xắn.",
-    stock: 12,
+    name: "Hoa thép nghệ thuật — Bông Thược Dược",
+    category: "Khác",
+    price: 520000,
+    description: `Nếu hoa tươi là vẻ đẹp của khoảnh khắc, thì hoa thép là vẻ đẹp của vĩnh cửu.
+
+Bông Thược Dược được rèn và uốn thủ công từ thép không gỉ, mỗi cánh hoa mang dấu vân tay của người nghệ nhân. Ánh bạc lạnh lùng nhưng đường nét lại mềm mại, uyển chuyển — sự kết hợp bất ngờ giữa mạnh mẽ và dịu dàng, giữa công nghiệp và nghệ thuật.
+
+Đặt trên kệ sách, bàn làm việc hay bệ cửa sổ, bông hoa thép sẽ là tâm điểm của mọi ánh nhìn, là câu chuyện mà khách đến chơi nhà sẽ hỏi.
+
+• Chất liệu: Thép không gỉ, rèn và uốn thủ công
+• Kích thước: ~20cm đường kính
+• Bền vĩnh viễn, không phai màu
+• Mỗi bông là duy nhất — không có hai bông giống hệt nhau`,
+    stock: 5,
     featured: true,
     images: [
-      "https://picsum.photos/seed/giftbox1/600/600",
-      "https://picsum.photos/seed/giftbox1b/600/600"
+      "/products/metal-flower-1.jpg",
+      "/products/metal-flower-2.jpg"
     ]
   },
   {
     id: "5",
-    name: "Nhẫn bạc hình lá olive",
+    name: "Khuyên tai chùm hoa Linh Lan",
     category: "Trang sức",
-    price: 210000,
-    description: "Nhẫn bạc 925 thiết kế hình lá olive thanh mảnh, biểu tượng của hoà bình và thịnh vượng. Có thể điều chỉnh size, phù hợp làm quà tặng.",
-    stock: 18,
-    featured: false,
+    price: 185000,
+    description: `Trong ngôn ngữ của hoa, Linh Lan tượng trưng cho sự trở lại của hạnh phúc. Nhỏ bé, khiêm nhường nhưng toả hương thơm dịu nhẹ — giống như những niềm vui bình dị ta thường bỏ quên.
+
+Đôi khuyên tai chùm Linh Lan được nặn tay từng bông hoa nhỏ xinh, cánh trắng tinh khôi rủ xuống nhẹ nhàng bên chiếc lá xanh non. Giọt sương pha lê trong suốt lấp lánh ở đầu chùm hoa, như vừa mới hứng sương mai.
+
+Đeo lên, bạn sẽ nghe thấy tiếng chuông nhỏ của mùa xuân đang reo.
+
+• Chất liệu: Đất sét polymer, móc tai thép không gỉ, giọt pha lê
+• Kích thước chùm hoa: ~3.5cm
+• Trọng lượng: Rất nhẹ, không gây đau tai
+• Phù hợp: Đi học, đi làm, dạo phố, chụp ảnh vintage`,
+    stock: 20,
+    featured: true,
     images: [
-      "https://picsum.photos/seed/ring1/600/600",
-      "https://picsum.photos/seed/ring1b/600/600"
+      "/products/lily-earrings.jpg"
     ]
   },
   {
     id: "6",
-    name: "Băng đô crochet pastel",
-    category: "Phụ kiện tóc",
-    price: 75000,
-    description: "Băng đô đan móc (crochet) thủ công từ sợi cotton mềm mại, màu pastel dịu nhẹ. Có độ co giãn tốt, phù hợp mọi kích thước đầu.",
-    stock: 30,
-    featured: false,
+    name: "Khuyên tai hoa Diên Vĩ tím",
+    category: "Trang sức",
+    price: 175000,
+    description: `Diên Vĩ (Iris) — loài hoa mang tên nữ thần cầu vồng trong thần thoại Hy Lạp, tượng trưng cho trí tuệ, niềm tin và sự ngưỡng mộ.
+
+Đôi khuyên tai được tạo hình tỉ mỉ với cánh hoa gradient từ tím lavender sang vàng mật ong, mềm mại tựa cánh bướm đang dừng chân. Giọt pha lê aurora borealis lấp lánh ở cuối mỗi bông — đổi màu theo ánh sáng, mỗi góc nhìn mỗi khác, giống như chính bạn: luôn có điều thú vị chờ được khám phá.
+
+• Chất liệu: Đất sét polymer cao cấp, móc tai mạ vàng 18K, đá pha lê AB
+• Kích thước bông hoa: ~2.5cm
+• Tone màu: Tím lavender — vàng mật ong
+• Phù hợp: Sự kiện, tiệc tối, hẹn hò, làm quà tặng`,
+    stock: 16,
+    featured: true,
     images: [
-      "https://picsum.photos/seed/headband1/600/600",
-      "https://picsum.photos/seed/headband1b/600/600"
+      "/products/iris-earrings.jpg"
     ]
   },
   {
     id: "7",
-    name: "Ví cầm tay thêu hoa lavender",
-    category: "Túi xách",
-    price: 165000,
-    description: "Ví cầm tay nhỏ xinh được thêu tay họa tiết hoa lavender tím. Chất liệu vải linen tự nhiên, có khoá kéo chắc chắn và ngăn đựng thẻ bên trong.",
-    stock: 14,
-    featured: true,
-    images: [
-      "https://picsum.photos/seed/wallet1/600/600",
-      "https://picsum.photos/seed/wallet1b/600/600"
-    ]
-  },
-  {
-    id: "8",
-    name: "Nến thơm sáp đậu nành - Hoa hồng",
+    name: "Thiệp Cỏ Bốn Lá may mắn",
     category: "Quà tặng",
-    price: 135000,
-    description: "Nến thơm handmade từ sáp đậu nành tự nhiên, hương hoa hồng dịu nhẹ. Thời gian cháy khoảng 40 giờ. Ly nến thuỷ tinh có thể tái sử dụng.",
-    stock: 25,
+    price: 85000,
+    description: `Người ta nói, tìm được một chiếc cỏ bốn lá giữa đồng cỏ rộng lớn là điều vô cùng hiếm hoi — cũng hiếm như gặp được đúng người, đúng thời điểm.
+
+Mỗi chiếc thiệp nhỏ mang trên mình một bông cỏ bốn lá được làm từ resin xanh trong suốt, đặt trên nền giấy kraft với hoạ tiết hoa cỏ nhẹ nhàng. Dưới ánh nắng, cỏ bốn lá lấp lánh như đang giữ trọn một lời nguyện ước.
+
+Gửi kèm một câu viết tay, đây sẽ là món quà nhỏ mà ai nhận được cũng phải mỉm cười — "Chúc bạn luôn may mắn, như tìm được cỏ bốn lá giữa ngày bình thường."
+
+• Chất liệu: Giấy kraft 300gsm, cỏ bốn lá resin
+• Kích thước thiệp: 8 x 10cm
+• Đóng gói: Bọc cellophane trong suốt, sẵn sàng tặng
+• Phù hợp: Kèm quà sinh nhật, lời cảm ơn, bookmark sách`,
+    stock: 50,
     featured: false,
     images: [
-      "https://picsum.photos/seed/candle1/600/600",
-      "https://picsum.photos/seed/candle1b/600/600"
+      "/products/clover-cards.jpg"
     ]
   }
 ];

@@ -4,7 +4,7 @@ import seedProducts from "../data/seedProducts";
 const ProductContext = createContext();
 
 const STORAGE_KEY = "handmade_products";
-const SEED_KEY = "handmade_seeded";
+const SEED_KEY = "handmade_seeded_v2";
 
 function loadProducts() {
   try {
