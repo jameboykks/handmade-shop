@@ -1,8 +1,9 @@
 import { Navigate, Outlet, Link, NavLink } from "react-router-dom";
-import { HiOutlineHome, HiOutlineCollection, HiOutlinePlusCircle, HiOutlineLogout, HiOutlineExternalLink } from "react-icons/hi";
+import { HiOutlineHome, HiOutlineCollection, HiOutlinePlusCircle, HiOutlineClipboardList, HiOutlineLogout, HiOutlineExternalLink } from "react-icons/hi";
 
 const sidebarLinks = [
   { to: "/admin/dashboard", label: "Tổng quan", icon: HiOutlineHome },
+  { to: "/admin/orders", label: "Đơn hàng", icon: HiOutlineClipboardList },
   { to: "/admin/products", label: "Sản phẩm", icon: HiOutlineCollection },
   { to: "/admin/products/new", label: "Thêm mới", icon: HiOutlinePlusCircle },
 ];

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ProductProvider } from "./context/ProductContext";
 import { CartProvider } from "./context/CartContext";
+import { OrderProvider } from "./context/OrderContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Toast from "./components/Toast";
@@ -11,6 +12,8 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import AdminLogin from "./pages/admin/AdminLogin";
@@ -18,6 +21,7 @@ import AdminLayout from "./pages/admin/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
 import ProductList from "./pages/admin/ProductList";
 import ProductForm from "./pages/admin/ProductForm";
+import OrderList from "./pages/admin/OrderList";
 
 function StorefrontLayout() {
   return (
@@ -30,6 +34,8 @@ function StorefrontLayout() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order-success/:orderId" element={<OrderSuccess />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
@@ -55,6 +61,7 @@ function AppRoutes() {
           <Route path="products" element={<ProductList />} />
           <Route path="products/new" element={<ProductForm />} />
           <Route path="products/:id/edit" element={<ProductForm />} />
+          <Route path="orders" element={<OrderList />} />
         </Route>
       </Routes>
     );
@@ -68,7 +75,9 @@ export default function App() {
     <BrowserRouter>
       <ProductProvider>
         <CartProvider>
-          <AppRoutes />
+          <OrderProvider>
+            <AppRoutes />
+          </OrderProvider>
         </CartProvider>
       </ProductProvider>
     </BrowserRouter>

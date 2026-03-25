@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { formatPrice } from "../components/ProductCard";
-import { HiOutlineTrash, HiOutlineShoppingBag, HiOutlineCheckCircle, HiOutlineSparkles } from "react-icons/hi";
+import { HiOutlineTrash, HiOutlineShoppingBag, HiOutlineSparkles, HiOutlineArrowRight } from "react-icons/hi";
 
 export default function Cart() {
-  const { items, updateQuantity, removeFromCart, totalPrice, clearCart } = useCart();
-  const [showConfirm, setShowConfirm] = useState(false);
+  const { items, updateQuantity, removeFromCart, totalPrice } = useCart();
+  const navigate = useNavigate();
 
   if (items.length === 0) {
     return (
@@ -115,46 +114,16 @@ export default function Cart() {
             <span className="text-2xl font-bold text-gradient">{formatPrice(totalPrice)}</span>
           </div>
           <button
-            onClick={() => setShowConfirm(true)}
+            onClick={() => navigate("/checkout")}
             className="w-full btn-gradient py-4 rounded-2xl font-semibold text-base cursor-pointer shadow-lg shadow-pink/20 hover:shadow-xl active:scale-[0.98] transition-all"
           >
-            <span>Đặt hàng</span>
+            <span className="flex items-center justify-center gap-2">
+              Tiến hành đặt hàng
+              <HiOutlineArrowRight className="w-5 h-5" />
+            </span>
           </button>
         </div>
       </div>
-
-      {/* Confirmation Modal */}
-      {showConfirm && (
-        <div
-          className="fixed inset-0 bg-dark/40 backdrop-blur-md z-50 flex items-center justify-center p-4"
-          onClick={() => setShowConfirm(false)}
-        >
-          <div
-            className="bg-white rounded-3xl p-8 sm:p-10 max-w-md w-full text-center animate-fade-in shadow-2xl border border-gray/50"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="w-20 h-20 mx-auto mb-5 bg-gradient-to-br from-mint-light to-mint/20 rounded-full flex items-center justify-center">
-              <HiOutlineCheckCircle className="w-10 h-10 text-mint" />
-            </div>
-            <h2 className="font-display text-2xl font-bold text-dark mb-3">
-              Đặt hàng thành công!
-            </h2>
-            <p className="text-dark-light mb-8 leading-relaxed">
-              Cảm ơn bạn đã tin tưởng Handmade. Đơn hàng của bạn sẽ được xử lý
-              trong thời gian sớm nhất.
-            </p>
-            <button
-              onClick={() => {
-                clearCart();
-                setShowConfirm(false);
-              }}
-              className="btn-gradient px-10 py-3.5 rounded-2xl font-semibold cursor-pointer shadow-lg shadow-pink/20"
-            >
-              <span>Tuyệt vời!</span>
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
